@@ -1,0 +1,21 @@
+<%= form_for(@link_collection) do |f| %>
+  <% if @link_collection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link_collection.errors.count, "error") %> prohibited this link_collection from being saved:</h2>
+
+      <ul>
+      <% @link_collection.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<h1>Listing link_collections</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @link_collections.each do |link_collection| %>
+  <tr>
+    <td><%= link_collection.user_id %></td>
+    <td><%= link_to 'Show', link_collection %></td>
+    <td><%= link_to 'Edit', edit_link_collection_path(link_collection) %></td>
+    <td><%= link_to 'Destroy', link_collection, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Link collection', new_link_collection_path %>
