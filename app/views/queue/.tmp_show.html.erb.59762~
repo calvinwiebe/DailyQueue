@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Untitled Document</title>
+	</head>
+	<body>
+		<h1>This is the queue for <%= current_user.username %>!</h1>
+	</body>
+	<%= form_tag(add_path, :method => "post") do %>
+	<input type="text" name="url"/>
+	<input type="submit" value="Add"/>
+<% end %>
+			<% current_user.link_collections.each do |link_collection| %>
+	<div id="user-queue">
+
+<table>
+    <% link_collection.links.each do |link| %>
+    <tr>
+        <td>
+        	<%= button_to 'delete', delete_path(:id => link.id), :confirm => 'Are you sure?', :method => :delete %>
+            <a href='<%= link.url %>'><%= link.url %></a>
+			
+        </td>
+    </tr>
+    <% end %>
+</table>
+</div>
+<% end %>
+</html>

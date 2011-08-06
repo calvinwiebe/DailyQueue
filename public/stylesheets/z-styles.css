@@ -1,0 +1,17 @@
+header, footer, aside, nav, article {
+    display: block;
+}
+
+html,body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#main-container{
+	
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 100px;
+	
+}
