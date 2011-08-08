@@ -9,8 +9,8 @@ DailyQueue::Application.routes.draw do
   end
   
   match "profile" => "queue#show", :as => "profile"
-  match "add" => "queue#add", :as => "add"
-  match "delete" => "queue#delete", :as => "delete"
+  match "add" => "queue#add", :as => "add", :via => [:post]
+  match "delete" => "queue#delete", :as => "delete", :via => [:delete]
   
   scope :module => "admin" do
     resources :links, :link_collections
