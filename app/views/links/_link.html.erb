@@ -1,0 +1,14 @@
+<% if link == @current_item %>
+<tr id="current_item" style="display:none" >
+<% else %>
+        <tr>
+<% end %>
+            <td class="delete-cell">
+            					<%= button_to 'delete', delete_path(:id => link.id), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+                
+            </td>
+			<td class="link-cell">
+				<a href='<%= link.url %>'><%= link.url %></a>
+			</td>
+        </tr>
+

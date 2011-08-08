@@ -1,0 +1,9 @@
+page.replace_html('links', render(@link_collection))
+
+page[:current_item].visual_effect :appear, :duration => 2.0
+
+page.call 'showNotice', flash[:notice]
+
+page.call 'clearAddBox'
+
+flash.discard

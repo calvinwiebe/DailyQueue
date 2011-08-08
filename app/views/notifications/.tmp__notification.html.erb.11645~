@@ -1,0 +1,6 @@
+<span id="notice"><%= javascript_tag :defer => 'defer' do -%>
+    showNotice('<%= notice %>')<% end -%>
+</span>
+<span id="alert"><%= javascript_tag :defer => 'defer' do -%>
+    showAlert('<%= alert %>')<% end -%>
+</span>

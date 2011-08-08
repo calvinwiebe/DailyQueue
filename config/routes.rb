@@ -1,7 +1,12 @@
 DailyQueue::Application.routes.draw do
   
   
-  devise_for :users, :controllers => {:sessions => 'sessions'}
+  devise_for :users, :controllers => {:sessions => 'sessions'}, :skip => [ :sessions ] do
+    get "/login" => "sessions#new", :as => "new_user_session"
+    post "/login" => "sessions#create", :as => "user_session"
+    delete "/logout" => "sessions#destroy", :as => "destroy_user_session"
+    get "/register" => "devise/registrations#new", :as => "new_user_registration"
+  end
   
   match "profile" => "queue#show", :as => "profile"
   match "add" => "queue#add", :as => "add"

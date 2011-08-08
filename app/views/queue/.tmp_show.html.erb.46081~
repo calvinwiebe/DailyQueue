@@ -8,7 +8,7 @@
             </td>
             <td>
                 <div id="addsection">
-                    <%= form_tag(add_path, :method => "post", :remote => true, :id => "addForm") do %>
+                    <%= form_tag(add_path, :method => "post") do %>
                     <input id="addbox" type="text" name="url"/><input id="addbutton" type="submit" value="add"/><% end %>
                 </div>
             </td>
@@ -16,5 +16,18 @@
     </table>
 </div>
 <% current_user.link_collections.each do |link_collection| %>
- <%= render(link_collection) %>
+<div id="user-queue">
+	<div class="link">
+    <table>
+        <% link_collection.links.each do |link| %>
+        <tr>
+            <td>
+            					<%= button_to 'delete', delete_path(:id => link.id), :confirm => 'Are you sure?', :method => :delete %>
+                <a href='<%= link.url %>'><%= link.url %></a>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+	</div>
+</div>
 <% end %>

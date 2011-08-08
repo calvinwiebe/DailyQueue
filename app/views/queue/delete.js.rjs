@@ -1,0 +1,5 @@
+page.replace_html('links', render(@link_collection))
+
+page.call 'showNotice', flash[:notice]
+
+flash.discard

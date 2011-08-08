@@ -11,11 +11,20 @@
         <div id="main-container">
             <div id="main-container-inner">
                 <div id="notifications">
-					<%= render :partial => 'notifications/notification' %>
+                    <span class="notice">
+                        <%= javascript_tag :defer => 'defer' do -%>
+                        	showNotice('<%= notice %>')
+						<% end -%>
+                    </span>
+                    <span class="alert">
+                        <%= javascript_tag :defer => 'defer' do -%>
+                        	showAlert('<%= alert %>')
+						<% end -%>
+                    </span>
                 </div>
                 <div id ="header">
                     <div>
-                        <a href="/"><img alt="about" src="/images/dailyqueue-logo.png"></img></a>
+                        <a href="/"><img src="/images/dailyqueue-logo.png"></img></a>
                     </div>
                     <div id="user_nav">
                         <% if user_signed_in? %>

@@ -8,9 +8,8 @@ class SessionsController < Devise::SessionsController
     sign_in(resource_name, resource)
     respond_to do |format|
       format.html { respond_with resource, :location => redirect_location(resource_name, resource) }
-      format.json { render :json => {:success => true} }
+      format.json { render :json => {:success => true, :authenticity_token => form_authenticity_token} }
     end
-    
   end
   
   
@@ -18,7 +17,7 @@ class SessionsController < Devise::SessionsController
     unless request.format.to_sym == :html
       render :json => {:success => false}
     else
-      redirect_to(new_user_session_path, :notice => "Invalid user name or password")
+      redirect_to(new_user_session_path, :alert => "Invalid user name or password")
     end
   end
 end
