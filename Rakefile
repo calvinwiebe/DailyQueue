@@ -8,8 +8,7 @@ class Rails::Application
   
   include Rake::DSL if defined?(Rake::DSL)
   
-  
-  
+    
 end
 
 DailyQueue::Application.load_tasks
