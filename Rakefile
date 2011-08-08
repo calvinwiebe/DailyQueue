@@ -3,7 +3,7 @@
 
 require File.expand_path('../config/application', __FILE__)
 gem 'rake', '0.8.7'
-require 'rake','0.8.7'
+require 'rake'
 
 class Rails::Application
   
